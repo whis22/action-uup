@@ -1,0 +1,25 @@
+name: UUP and Upload to Artifact
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-and-upload:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run convert-uup
+        shell: cmd
+        run: uup_download_windows.cmd
+
+      - name: Upload install.wim as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: install-wim
+          path: ./install.wim
