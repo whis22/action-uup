@@ -18,8 +18,8 @@ jobs:
         shell: cmd
         run: uup_download_windows.cmd
 
-      - name: Upload install.wim as artifact
+      - name: Upload install.esd as artifact
         uses: actions/upload-artifact@v4
         with:
           name: install-wim
-          path: ./install.wim
+          path: ./install.esd
