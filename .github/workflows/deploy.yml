@@ -19,7 +19,8 @@ jobs:
         run: uup_download_windows.cmd
 
       - name: Upload install.esd as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
-          name: install.esd
-          path: ./install.esd
+         name: install.esd
+         path:./install.esd
+         --no-archive: true
